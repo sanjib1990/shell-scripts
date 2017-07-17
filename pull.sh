@@ -10,6 +10,7 @@ for d in ${BASE_PATH}/*/; do
     BRANCH=$(git -C ${d} symbolic-ref --short HEAD)
 
     echo "\n ${d} is in BRANCH ${BRANCH} \n"
+    git -C ${d} fetch --all --prune
     git -C ${d} pull origin ${BRANCH}
 
     echo "\n Done.."
